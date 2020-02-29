@@ -18,3 +18,10 @@
 # 4. Templates : html page 
 # 5. Models : db table 요소 및 구조 세팅 
 
+# 로컬 서버 시작 : python manage.py runserver
+
+# django admin setting : python manage.py createsuperuser
+
+# 항상 models.py 수정 후, 
+# 1. python manage.py makemigrations
+# 2. python manage.py migrate

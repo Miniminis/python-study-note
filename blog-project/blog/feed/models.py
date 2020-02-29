@@ -7,6 +7,7 @@ from django.db import models
 # 3. hashtag 
 
 class Article(models.Model):
+    objects = models.Manager()
     CATEGORY_CHOICES = [
         ('DV', 'Development'),
         ('PS', 'Personal'),
@@ -21,11 +22,19 @@ class Article(models.Model):
         verbose_name="카테고리"
     )
 
+    def __str__(self):
+        return self.title
+
 class Comment(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
     username = models.CharField(max_length=50, verbose_name="댓글작성자")
     content = models.CharField(max_length=200, verbose_name="댓글내용")
 
+    def __str__(self):
+        return "[{}] 에 대한 코멘트 : {} - by {}".format(self.article.title, self.content, self.username)    
    
 class HashTag(models.Model):
     hashtag = models.CharField(max_length=50, verbose_name="해쉬태그")
+
+    def __str__(self):
+        return self.hashtag
