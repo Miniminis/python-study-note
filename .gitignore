@@ -149,23 +149,3 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/web,python,windows
-
-# Database stuff
-*.sqlite3
-migrations/
-db.sqlite3
-
-# 가상환경 추가
-c03flask-basic/flask-sample-env/Scripts/pythonw.exe
-c03flask-basic/flask-sample-env/Scripts/python.exe
-c03flask-basic/flask-sample-env/Scripts/pip3.exe
-c03flask-basic/flask-sample-env/Scripts/pip3.8.exe
-c03flask-basic/flask-sample-env/Scripts/pip.exe
-c03flask-basic/flask-sample-env/Scripts/flask.exe
-c03flask-basic/flask-sample-env/Scripts/easy_install.exe
-c03flask-basic/flask-sample-env/Scripts/easy_install-3.8.exe
-c03flask-basic/flask-sample-env/Scripts/deactivate.bat
-c03flask-basic/flask-sample-env/Scripts/Activate.ps1
-c03flask-basic/flask-sample-env/Scripts/activate.bat
-c03flask-basic/flask-sample-env/Scripts/activate
-c03flask-basic/flask-sample-env/pyvenv.cfg
