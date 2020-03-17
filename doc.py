@@ -3,6 +3,17 @@
 # Django 3.0.3
 ###
 
+## 파이썬 프로젝트 설정 in vscode 
+# Command Pallete 
+# 1. python interpreter : 방금 생성한 가상환경 
+# 2. task configure task >> create configure json >> others : tasks.json 파일이 생성됨. 기초 세팅 완료함.
+
+# 1. 가상환경세팅 
+# 2. Python select Interpreter
+# 3. Task:configure task > others > 설정파일 복붙
+
+
+
 ## pip commands
 # pip install : pip로 파이썬 패키지(라이브러리) 설치하기
 # pip uninstall : pip로 파이썬 패키지(라이브러리) 삭제하기
@@ -17,7 +28,6 @@
 # 3. django 설정 : pip install django
 # 4. project 생성 : django-admin startproject [project name]
 # 5. app 생성 : cd [project name] >> django-admin startapp board    //각 기능별로 별도의 app으로 생성 
-
 
 ## (example) django project setting
 # 새로운 폴더 생성 후 독립 환경 설정

@@ -1,16 +1,16 @@
 # 크롤링 기초 
 
-# import lib
-# url 
-# 다운받을 경로 설정 
-# 예외처리
+# 1. import lib
+# 2. url 설정 
+# 3. 다운받을 경로 설정 
+# 4. 예외처리
 
 import urllib.request as req
 
 img_url = "https://images.theconversation.com/files/307636/original/file-20191218-11891-rdedzs.jpg?ixlib=rb-1.1.0&rect=0%2C601%2C4611%2C2965&q=45&auto=format&w=926&fit=clip"
 html_url= "https://www.google.com"
 
-save_path1 = "C:/Users/CrePASS/Documents/GitHub/python-study-note/p02crawling-basic/sample_image.jpg"      # 파일 이름, 포맷 명시 안하면 permission denied 에러 뜸  
+save_path1 = "C:/Users/CrePASS/Documents/GitHub/python-study-note/p02crawling-basic/sample_image.jpg"      
 save_path2 = "C:/Users/CrePASS/Documents/GitHub/python-study-note/p02crawling-basic/index.html"
 
 # save_path1 = "C:/python-crawling/"      # 파일 이름, 포맷 명시 안하면 permission denied 에러 뜸 
