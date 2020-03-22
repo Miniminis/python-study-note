@@ -6,8 +6,8 @@
 import urllib.request as req
 from urllib.error import HTTPError, URLError
 
-path_list = ["C:/Users/minhe/Documents/GitHub/python-study-note/p02crawling-basic/c02urlopen/crawling-test02.jpg", 
-                "C:/Users/minhe/Documents/GitHub/python-study-note/p02crawling-basic/c02urlopen/index.html"]
+path_list = ["C:/Users/minhe/Documents/GitHub/python-study-note/p02crawling-basic/c02urlopen/c02urlopenImg.jpg", 
+                "C:/Users/minhe/Documents/GitHub/python-study-note/p02crawling-basic/c02urlopen/c02urlopenIndex.html"]
 
 target_url = ["https://t1.daumcdn.net/liveboard/petnu/9ba55cc775504cb0bdf4c37d4e885ceb.JPG", 
                 "https://www.google.com/"]

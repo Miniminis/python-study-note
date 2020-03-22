@@ -9,7 +9,6 @@ import lxml.html
 
 def main():
     response = requests.get("https://www.naver.com/")
-
     urls = scrape_news_list(response)
 
     for url in urls:

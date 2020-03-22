@@ -10,8 +10,8 @@ import urllib.request as req
 img_url = "https://images.theconversation.com/files/307636/original/file-20191218-11891-rdedzs.jpg?ixlib=rb-1.1.0&rect=0%2C601%2C4611%2C2965&q=45&auto=format&w=926&fit=clip"
 html_url= "https://www.google.com"
 
-save_path1 = "C:/Users/CrePASS/Documents/GitHub/python-study-note/p02crawling-basic/sample_image.jpg"      
-save_path2 = "C:/Users/CrePASS/Documents/GitHub/python-study-note/p02crawling-basic/index.html"
+save_path1 = "C:/Users/CrePASS/Documents/GitHub/python-study-note/p02crawling-basic/c01urlretrieveImg.jpg"      
+save_path2 = "C:/Users/CrePASS/Documents/GitHub/python-study-note/p02crawling-basic/c01urlretrieveIndex.html"
 
 # save_path1 = "C:/python-crawling/"      # 파일 이름, 포맷 명시 안하면 permission denied 에러 뜸 
 # save_path2 = "C:/python-crawling/index.html"
