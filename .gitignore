@@ -149,3 +149,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/web,python,windows
+p02crawling-basic/crawling_env/Scripts/pip3.8.exe
