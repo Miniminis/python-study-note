@@ -50,3 +50,6 @@
 # db.sqlite3
 # baemin_sample/ (독립 환경 생성 시 만들어지는 폴더 이름)
 # git commit -m "first commit" 부터 남은 설정 진행
+
+## requirements.txt 에 있는 pip lib 한번에 설치하기 
+# pip install -r requirements.txt 
