@@ -1,4 +1,6 @@
 """
+ex url) https://blog.scrapinghub.com/
+
 scrapy framework 
 - scrapy 설치 : pip install scrapy 
 - window 에서 발생하는 에러 : C++ 14.0 이상 필요 
@@ -19,4 +21,8 @@ scrapy command
 - --no log : scrapy 의 기본 로그 생략  
 
 
+result 
+- scrapy crawl [spider name] -o 파일명.확장자 -t 파일타입(json, jsonlines, jl, csv, xml, marshal, pickle)
+- scrapy crawl [spider name] -o result.jl -t jsonlines   # json line 형식으로 크롤링 결과 표현
+- scrapy crawl [spider name] -o result.csv -t csv            # csv 형식으로 저장
 """
