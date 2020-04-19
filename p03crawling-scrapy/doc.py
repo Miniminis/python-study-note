@@ -25,4 +25,8 @@ result
 - scrapy crawl [spider name] -o 파일명.확장자 -t 파일타입(json, jsonlines, jl, csv, xml, marshal, pickle)
 - scrapy crawl [spider name] -o result.jl -t jsonlines   # json line 형식으로 크롤링 결과 표현
 - scrapy crawl [spider name] -o result.csv -t csv            # csv 형식으로 저장
+
+
+
+링크 순회 : main page >> detail page 클릭 후 크롤링 반복 동작 
 """
