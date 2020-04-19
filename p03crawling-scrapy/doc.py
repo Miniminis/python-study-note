@@ -29,4 +29,50 @@ result
 
 
 링크 순회 : main page >> detail page 클릭 후 크롤링 반복 동작 
+
+
+Shell 
+- scrapy 에서 지원하는 shell mode 
+- command
+    1) scrapy shell ['domain']
+    2) scrapy shell >> fetch('domain')
+- 간이테스트에 용이 
+- fetch : scrapy shell >> fetch('domain'). url 변경시 용이.
+- view : 현재 response 페이지 브라우저에서 확인
+- response : 크롤링 요청에 대한 응답 
+- request : 크롤링 요청
+
+[s] Available Scrapy objects:
+[s]   scrapy     scrapy module (contains scrapy.Request, scrapy.Selector, etc)
+[s]   crawler    <scrapy.crawler.Crawler object at 0x0491E850>
+[s]   item       {}
+[s]   request    <GET https://blog.scrapinghub.com>
+[s]   response   <200 https://blog.scrapinghub.com>
+[s]   settings   <scrapy.settings.Settings object at 0x0491E7C0>
+[s]   spider     <ThirdSpider 'third' at 0x506fec8>
+[s] Useful shortcuts:
+[s]   fetch(url[, redirect=True]) Fetch URL and update local objects (by default, redirects are followed)
+[s]   fetch(req)                  Fetch a scrapy.Request and update local objects
+[s]   shelp()           Shell help (print this help)
+[s]   view(response)    View response in a browser
+
+
+dir(response) : response 에 대해서 쓸 수 있는 명령어, 함수들의 리스트 
+
+scrapy shell [domain] [option]
+- scrapy shell https://daum.net --set "ROBOTSTXT_OBEY=False" 
+
+
+spider attribute 
+- multi domain : 동시에 여러 사이트 크롤링을 하고 싶을때 
+    1) start_urls 내에서 나열하여 parse 함수에서 분기처리 
+    2) start_requests(self) 라는 이미 정의된 함수 내에서 각각의 도메인에 대해서 parse 함수 정의
+        - 각각 별개의 parse 함수로 받아서 처리할 수도 있음 
+- logger : 
+    1) python lib logger  
+    2) scrapy 내부의 logger 
+- response 분기 :
+    
+
+
 """
