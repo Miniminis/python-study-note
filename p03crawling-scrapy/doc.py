@@ -136,10 +136,12 @@ scrapy - items
 
 
 scrapy - exports 
+내가 원하는 형식, 저장위치에 자동으로 스크래핑 결과가 적용이 되도록 설정하는 것 
+-o ?
 - 형식: 
 	- json, json lines
 	- csv
-	- xml, pickle, marchal 
+	- xml, pickle, marshal 
 - 저장위치 : 
 	- local file system : my pc
 	- ftp - server
@@ -153,12 +155,35 @@ scrapy - exports
 	옵션설정 : --set=FEED_EXPORT_INDENT = 2
 	
 	2. Settings.py 이용 : 자동 저장(파일명, 형식, 위치 등) 
-		
-
-
+		참고 )  C:\Users\minhe\Documents\GitHub\python-study-note\p03crawling-scrapy\sec06_copy\sec06_copy\settings.py
 
 scrapy - settings
+참고 ) C:\Users\minhe\Documents\GitHub\python-study-note\p03crawling-scrapy\sec07\sec07\settings.py
+
+1. 다양한 실행방법 
+	1. 커맨드 라인 실행 : scrapy crawl [크롤러 명] -s(--set) <NAME>=<VALUE>
+	2. 스파이더 실행시 직접 지정 : 
+		custom_settings = {
+			'DOWNLOAD_OBEY' = 2
+		}
+	3. settings.py 에 지정 : 추천방법
+	4. 서브 명령어 : 신경 X 
+	5. 글로벌 설정 : scrapy.settings.default_settings
+
+2. 각 설정 항목 상세 설명 
+3. 뉴스 사이트 크롤링 연습 
+4. 기타 항목 : 캐시, 미들웨어 
+
 
 scrapy - pipeline
+1. 파이프라인?
+- 이미지 아키텍쳐 저장 
+2. 설명 및 메소드 
+3. amaxon alexa 크롤링 연습 
+4. validation 추가 및 테스트 : 일정 조건에 맞는 데이터만 저장 및 출력
 
+5. pipeline 초기화 매서드 
+6. item csv 저장 
+7. item excel 저장 
+8. pipeline 요약 설명 
 """

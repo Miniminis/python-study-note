@@ -92,16 +92,16 @@ DOWNLOAD_DELAY = 2
 
 # 출력(export setting)
 # 파일 이름 및 경로 : json, jsonlines, csv, xml, pickle, marshal 등 
-FEED_URI = 'result.csv'
+FEED_URI = 'result.json'
 
 # 파일형식
-FEED_FORMAT = 'csv'
-
+FEED_FORMAT ='json'
+ 
 # 출력 인코딩 
 FEED_EXPORT_ENCODING = 'utf-8'
 
 # 기본 들여쓰기 
-FEED_EXPORT_INDENT = 2
+FEED_EXPORT_INDENT = 0
 
 # 저장소, 저장형식 관련 레퍼런스 
 # https://docs.scrapy.org/en/latest/topics/feed-exports.html#feed-storages
