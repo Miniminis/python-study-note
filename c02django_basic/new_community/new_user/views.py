@@ -1,9 +1,50 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import NewUser
 from django.http import HttpResponse
 from django.contrib.auth.hashers import make_password, check_password
+from .forms import LoginForm
 
 # Create your views here.
+def home(request):
+    user_id = request.session.get('user')
+
+    if user_id:
+        user = NewUser.objects.get(useremail=user_id)
+        return HttpResponse(user)
+
+    return HttpResponse('home 입니다!')
+
+def login(request):
+    form = LoginForm()
+    return render(request, 'login.html', {'form' : form})
+# def login(request):
+#     if request.method == "GET":
+#         return render(request, "login.html")
+#     elif request.method == "POST":
+
+#         userEmail = request.POST.get('userEmail', None)
+#         userPw = request.POST.get('userPw', None)
+
+#         res_data = {}
+#         if not (userEmail and userPw):
+#             res_data['error'] = '모든 값을 입력해야합니다!'
+#         else:
+#             newuser = NewUser.objects.get(useremail=userEmail)
+#             if check_password(userPw, newuser.password):
+#                 request.session['user'] = newuser.useremail
+#                 return redirect('/')
+#             else:
+#                 res_data['error'] = '아이디 혹은 비밀번호를 확인해주세요!'
+
+#         return render(request, "login.html", res_data)
+
+def logout(request):
+    if request.session.get('user'):
+        del(request.session['user'])
+
+    return redirect('/')
+
+        
 def register(request):
     if request.method == "GET":
         return render(request, 'register.html')
@@ -38,22 +79,3 @@ def register(request):
             newuser.save() 
 
         return render(request, 'register.html', res_data)
-
-def login(request):
-    if request.method == "GET":
-        return render(request, "login.html")
-    elif request.method == "POST":
-        userEmail = request.POST.get('userEmail', None)
-        userPw = request.POST.get('userPw', None)
-
-        res_data = {}
-        if not (userEmail and userPw):
-            res_data['error'] = '모든 값을 입력해야합니다!'
-        else:
-            newuser = NewUser.objects.get(useremail=userEmail)
-            if check_password(userPw, newuser.password):
-                pass
-            else:
-                res_data['error'] = '아이디 혹은 비밀번호를 확인해주세요!'
-
-        return render(request, "login.html", res_data)
