@@ -15,8 +15,15 @@ def home(request):
     return HttpResponse('home 입니다!')
 
 def login(request):
-    form = LoginForm()
+    if request.method == "POST":
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            return redirect('/')
+    else :
+        form = LoginForm()      # GET 
+    
     return render(request, 'login.html', {'form' : form})
+
 # def login(request):
 #     if request.method == "GET":
 #         return render(request, "login.html")

@@ -27,6 +27,5 @@ create new_user app
 - console : python manage.py migrate : 데이터 마이그레이션 >> db.sqlite3 생성됨
 - sqlite db.sqlite3 ERROR 
 
-session 
 
 """
