@@ -20,5 +20,6 @@ from new_user.views import home
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('newuser/', include('new_user.urls')),
+    path('board/', include('board.urls')),
     path('', home),
 ]

@@ -9,8 +9,8 @@ def home(request):
     user_id = request.session.get('user')
 
     if user_id:
-        user = NewUser.objects.get(useremail=user_id)
-        return HttpResponse(user)
+        username = NewUser.objects.get(pk=user_id)
+        return HttpResponse(username)
 
     return HttpResponse('home 입니다!')
 
@@ -18,10 +18,11 @@ def login(request):
     if request.method == "POST":
         form = LoginForm(request.POST)
         if form.is_valid():
+            request.session['user'] = form.user_id
             return redirect('/')
     else :
         form = LoginForm()      # GET 
-    
+            
     return render(request, 'login.html', {'form' : form})
 
 # def login(request):
@@ -44,6 +45,7 @@ def login(request):
 #                 res_data['error'] = '아이디 혹은 비밀번호를 확인해주세요!'
 
 #         return render(request, "login.html", res_data)
+
 
 def logout(request):
     if request.session.get('user'):

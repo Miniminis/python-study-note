@@ -5,6 +5,6 @@ from .models import NewUser
 
 class NewuserAdmin(admin.ModelAdmin):
     # user table 에서 list에 표시할 데이터들 
-    list_display = ('username', 'password')
+    list_display = ('useremail', 'password')
 
-admin.site.register(NewUser, NewuserAdmin)
+admin.site.register(NewUser, NewuserAdmin) 

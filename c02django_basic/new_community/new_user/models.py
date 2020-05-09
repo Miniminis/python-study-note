@@ -12,10 +12,10 @@ class NewUser(models.Model):
     # 파이썬 내부에는 클래스 >> 문자열로 변환할때 어떻게 변환할 지 결정할 수 있는 내장함수 __str__() 가 존재함.
     # username 을 반환하도록 설정해줌 
     def __str__(self):
-        return self.username    
+        return self.username  
 
     # 테이블 명 직접 설정하기
     class Meta:
         db_table = 'newcommunity_user'
-        verbose_name = '새커뮤니티 사용자'
-        verbose_name_plural = '새커뮤니티 사용자'
+        verbose_name = '새 커뮤니티 사용자'
+        verbose_name_plural = '새 커뮤니티 사용자 모음'
