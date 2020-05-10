@@ -25,9 +25,14 @@ class LoginForm(forms.Form):
         typed_pw = cleaned_data.get('userPw')
 
         if typed_email and typed_pw:
-            newuser = NewUser.objects.get(useremail=typed_email)
+            try:
+                newuser = NewUser.objects.get(useremail=typed_email)
+            except NewUser.DoesNotExist:
+                self.add_error('userEmail', '아이디 혹은 비밀번호를를 확인해주세요!')
+                return 
+
             if not check_password(typed_pw, newuser.password):
-                self.add_error('password', '아이디 혹은 비밀번호를 확인해주세요!')
+                self.add_error('userPw', '아이디 혹은 비밀번호를 확인해주세요!')
             else :
                 self.user_id = newuser.id
 

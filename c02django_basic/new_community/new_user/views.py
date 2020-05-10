@@ -23,7 +23,7 @@ def login(request):
     else :
         form = LoginForm()      # GET 
             
-    return render(request, 'login.html', {'form' : form})
+    return render(request, 'login.html', {'form' : form})   
 
 # def login(request):
 #     if request.method == "GET":
