@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block contents %}
+
+<div class="row mt-5">
+
+    <div>
+        <h2 class="mt-5">글쓰기</h2>
+
+        <form method="POST" action="."  class="mt-5">
+            {% csrf_token %}
+
+            {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+
+                {% ifequal field.name 'content' %}
+                <textarea class="form-control" name="{{ field.name }}" 
+                    placeholder="{{ field.label }}"></textarea>
+        
+                {% else %}
+                <input type="{{ field.field.widget.input_type }}" class="form-control" 
+                    id="{{ field.id_for_label }}"
+                    name="{{ field.name }}" placeholder="{{ field.label }}">
+                {% endifequal %}
+            </div>
+
+            {% if field.errors %}
+            <span style="color: red">{{ field.errors }}</span>
+            {% endif %}
+
+            {% endfor %}
+
+            <button type="submit" class="btn btn-primary mt-3" onclick="location.href='/board'">등록하기</button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

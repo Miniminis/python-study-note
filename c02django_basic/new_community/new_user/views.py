@@ -8,11 +8,12 @@ from .forms import LoginForm
 def home(request):
     user_id = request.session.get('user')
 
+    res_data = {}
     if user_id:
         username = NewUser.objects.get(pk=user_id)
-        return HttpResponse(username)
+        res_data['username'] = username
 
-    return HttpResponse('home 입니다!')
+    return render(request, 'index.html', res_data)   
 
 def login(request):
     if request.method == "POST":

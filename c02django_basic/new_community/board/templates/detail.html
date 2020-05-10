@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block contents %}
+
+<div class="row mt-5">
+
+    <div>
+        <h2 class="mt-5">Detail Page</h2>
+
+        <form>
+
+            <div class="form-group">
+                <label for="title">제목</label>
+                <textarea class="form-control" name="title" readonly>
+                    {{ board.title }}
+                </textarea>
+
+                <label for="content">내용</label>
+                <input type="text" class="form-control" id="content"
+                    name="content" value="{{ board.content }}"
+                    readonly>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">뒤로가기</button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
