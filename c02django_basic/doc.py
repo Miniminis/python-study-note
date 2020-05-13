@@ -1,12 +1,14 @@
 """
+============================================
 django framework 
 - mvt : model, view, template layer 
-- model : 데이터베이스와 연관 
+- model : database 
 - view : business logic
 - template : html codes  
 - form 
 - admin 
 - security and etc.
+============================================
 
 프로젝트 만들기 
 - django-admin startproject [project name]
