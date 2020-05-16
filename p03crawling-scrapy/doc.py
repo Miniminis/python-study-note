@@ -19,7 +19,12 @@ scrapy framework
 - scrapy 설치 : pip install scrapy 
 - window 에서 발생하는 에러 : C++ 14.0 이상 필요 
 	>> 방법 1: visual studio 2019 community version 설치 - c++ desktop, python development 포함 
-	>> 방법 2: 비공식 파이썬 바이너리 페이지 이동 후 관련 휠 설치 
+	>> 방법 2: 비공식 파이썬 바이너리 페이지 이동 후 관련 휠 설치
+		- 아래의 링크에서 twisted wheel 설치 
+		- python.exe 위치한 폴더에 위치에 보관
+		- 가상환경에 들어간 상태에서 pip install [파일명]
+		- 그 후에 pip install scrapy 
+		- 성공적으로 설치 완료됨! 
 	- https://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted
 	- file name : Twisted-20.3.0-cp38-cp38-win32.whl
 
