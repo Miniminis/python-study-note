@@ -1,4 +1,18 @@
 """
+=========================================================================
+scrapy 
+1. basic commands
+2. link loop 
+3. multi-domain
+4. shell
+5. items 
+6. export
+7. setting
+8. pipeline
+9. middleware 
+=========================================================================
+
+
 ex url) https://blog.scrapinghub.com/
 
 scrapy framework 

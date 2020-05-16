@@ -1,4 +1,15 @@
 """
+===========================================
+1. urllib 
+2. lxml
+3. request 
+4. beautifulsoup
+5. selenium 
+6. scrapy 
+===========================================
+"""
+
+"""
 # Section02-1
 # 파이썬 크롤링 기초
 # urllib 사용법 및 기본 스크랩핑
@@ -94,7 +105,7 @@
 # Section03-3
 # 기본 스크랩핑 실습
 # 다음 주식 정보 가져오기
-- from fake_useragen import UserAgent
+- from fake_useragent import UserAgent
 
 
 
@@ -111,7 +122,7 @@
 * 참고 : with 문 사용하면 따로 session.close() 를 해주지 않아도 되서 편리함
 
 # Section04-2
-# Requests
+# Requests library 
 # requests 사용 스크랩핑(2) - Json
 - 수신데이터 dict 변환
 - dict 데이터 b = json.load(line) 으로 json 타입변환
@@ -136,5 +147,52 @@
     - link2 = soup.find("a", {"class": "sister", "data-io": "link3"})
 4. select, select_one
     - link1 = soup.select_one("p.title > b")
+
+
+# Section05-2
+# BeautifulSoup
+# BeautifulSoup 사용 스크랩핑(2) - 이미지 다운로드
+
+# Section05-3
+# BeautifulSoup
+# BeautifulSoup 사용 스크랩핑(3) - 로그인 처리
+
+
+# Section06-1
+# Selenium
+# Selenium 사용 실습(1) - 설정 및 기본 테스트
+# webdriver : https://sites.google.com/a/chromium.org/chromedriver/downloads
+- driver 설치 
+- 웹 자동화의 이해
+- selenium 기초 학습
+- daum 기반 학습 
+
+# Section06-2
+# Selenium
+# Selenium 사용 실습(2) - 실습 프로젝트(1)
+- 대상 사이트 선정 및 분석
+- explicitly wait 
+- implicityly wait 
+- 필요 정보 추출 
+
+# Section06-3
+# Selenium
+# Selenium 사용 실습(3) - 실습 프로젝트(2)
+- 페이지 전환 추가
+- selenium 성능 개선
+- 전체 프로세스 확인
+
+# Section06-4
+# Selenium
+# Selenium 사용 실습(4) - 실습 프로젝트(3)
+- 이미지 수집
+- 엑셀 데이터 작성
+- 전체 프로젝트 소스 코드 리뷰 
+- 기능 개선 및 공부 내용 추천 
+
+
+
+
+
 
 """
