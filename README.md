@@ -1,10 +1,8 @@
-# 파이썬 공부 노트
-
-> python study note
+# python study note
 
 ## Python
 
-- [documentation](doc.py)
+- [environment setting](doc.md)
 - [basic](/c01basic)
 - advanced
 
