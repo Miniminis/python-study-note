@@ -104,7 +104,7 @@ print('d - ', d[1])
 print('d - ', d[0] + d[1] + d[1])
 print('d - ', d[-1])
 print('e - ', e[-1][1])
-print('e - ', e[-1][1][4])
+# print('e - ', e[-1][1][4])
 print('e - ', list(e[-1][1]))
 
 # 슬라이싱

@@ -44,27 +44,41 @@ print(strweb.split('//')[1])
 
 # 9. 다음 문자열을 모두 대문자, 소문자로 각각 출력해보세요. 
 str = "NiceMan"
-print(str.capitalize())
+print(str.upper())
+print(str.lower())
 
-# 10. 다음 문자열을 슬라이싱을 이용해서 "cde"만 출력하세요. : "abcdefghijklmn"
+# 10. 다음 문자열을 슬라이싱을 이용해서 "cde"만 출력하세요.
+str = "abcdefghijklmn"
+print(str[2:5])
 
+# 11. 다음 리스트에서 "Apple" 항목만 삭제하세요.
+strlist = ["Banana", "Apple", "Orange"]
+strlist.remove("Apple")
+print(strlist)
 
-# 11. 다음 리스트에서 "Apple" 항목만 삭제하세요. : ["Banana", "Apple", "Orange"]
+strlist = ["Banana", "Apple", "Orange"]
+del strlist[1]
+print(strlist)
 
+# 12. 다음 튜플을 리스트로 변환하세요.
+t = (1,2,3,4)
+print(t)
+print(list(t))
+print(tuple(list(t)))
 
-# 12. 다음 튜플을 리스트로 변환하세요. : (1,2,3,4)
-
-
-# 13. 다음 항목을 딕셔너리(dict)으로 선언해보세요. : <성인 - 100000 , 청소년 - 70000 , 아동 - 30000>
-
+# 13. 다음 항목을 딕셔너리(dict)으로 선언해보세요. 
+# <성인 - 100000 , 청소년 - 70000 , 아동 - 30000>
+price = {"adult" : 10000, "teen":7000, "kid":3000}
+print(price)
 
 # 14. 13번 에서 선언한 dict 항목에 <소아 - 0> 항목을 추가해보세요.
-
+price['baby'] = 0
+print(price)
 
 # 15. 13번에서 선언한 딕셔너리(dict)에서 Key 항목만 출력해보세요.
-
+print(list(price.keys()))
 
 # 16. 13번에서 선언한 딕셔너리(dict)에서 value 항목만 출력해보세요.
-
+print(list(price.values()))
 
 # *** 결과 값만 정확하게 출력되면 됩니다. ^^* 고생하셨습니다. ***
