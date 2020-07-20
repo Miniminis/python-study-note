@@ -1,3 +1,5 @@
+# https://www.fastcampus.co.kr/me/course
+
 # Section04-1
 # 파이썬 데이터 타입(자료형)
 # 데이터타입, 숫자형, 숫자형 연산
