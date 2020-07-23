@@ -10,6 +10,11 @@ for weather in q1.keys():
     if(weather == "가을"):
         print(q1[weather])
 
+# 개선
+print(''.join(q1[v] for v in q1 if v == "가을"))
+
+print()
+
 # 2. 아래 딕셔너리에서 '사과'가 포함되었는지 확인하세요.
 q2 =  {"봄": "딸기", "여름": "토마토", "가을": "사과"}
 
@@ -19,7 +24,11 @@ for v in q2.values():
         break
 else : 
     print("포함안됨")
-    
+
+# 개선
+
+
+print()
 
 # 3. 다음 점수 구간에 맞게 학점을 출력하세요.
 # 81 ~ 100 : A학점

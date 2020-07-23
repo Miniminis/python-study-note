@@ -14,6 +14,7 @@ print(''.join([q1[s] for s in q1 if s == '가을']))
 q2 = fruit = {"봄": "딸기", "여름": "토마토", "가을": "사과"}
 
 hasApple = ['사과다!' for key, val in q2.items() if key == '사과' or val == '사과']
+print(hasApple)
 
 if len(hasApple) > 0:
     print('사과있음')
