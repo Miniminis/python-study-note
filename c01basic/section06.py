@@ -86,6 +86,8 @@ print(type(dic), dic, dic.get('ret3'), dic.items(), dic.keys(), dic.values())
 
 # 예제4 
 # *args, **kwargs 이해
+# *args : tuple 
+# **kwargs : dictionary 형태 
 
 # *args
 def args_func(*args):  # 매개변수명 자유롭게 변경 가능

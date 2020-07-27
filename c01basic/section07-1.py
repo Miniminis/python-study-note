@@ -10,9 +10,12 @@
 # 예제1
 
 class UserInfo:
-    def __init__(self, name):
-        self.name = name
 
+    # 생성자/초기화 함수
+    def __init__(self, name):
+        self.name = name    # 인스턴스 변수
+
+    # 인스턴스 함수
     def print_info(self):
         print("Name: " + self.name)
 
@@ -37,6 +40,8 @@ print(user1.name)
 
 # 예제2
 # self의 이해
+# 클래스 -> 인스턴스함수 호출은 가능. 
+# 인스턴스 없이 인스턴스 함수 호출 불가 
 
 class SelfTest:
     def function1():
@@ -50,9 +55,10 @@ class SelfTest:
 f = SelfTest()
 # print(dir(f))
 print(id(f))
-# f.function1() #예외 발생
-f.function2()
-print(SelfTest.function1())
+# f.function1() #예외 발생 :
+f.function2()  
+print(SelfTest.function1())  
+# print(SelfTest.function2())   # 예외발생 : self 인스턴스 전달 없음 
 
 
 # print(SelfTest.function2()) #예외 발생
