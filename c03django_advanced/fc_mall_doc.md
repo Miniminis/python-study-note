@@ -30,3 +30,12 @@ description : 쇼핑몰
    3. quantity
    4. regdate
 
+## 회원가입
+
+1. template
+   1. base
+   2. index
+   3. register
+2. forms.py
+3. url connect
+
