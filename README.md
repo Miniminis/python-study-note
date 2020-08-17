@@ -4,7 +4,7 @@
 
 - [environment setting](doc.md)
 - [basic](/c01basic)
-- advanced
+- [advanced](/c03django_advanced)
 
 ## Framework Django
 
