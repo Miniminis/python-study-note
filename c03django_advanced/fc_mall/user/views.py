@@ -1,12 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import FormView
 from .forms import RegisterForm, LoginForm
 from .models import FcUser
 from django.contrib.auth.hashers import make_password
+from django.utils.decorators import method_decorator
+from .decorators import login_required
 
 # Create your views here.
 def index(request):
     return render(request, 'index.html', {'user' : request.session.get('user')})
+
+def logout(request):
+    if 'user' in request.session:
+        del(request.session['user'])
+    return redirect('/')
 
 class RegisterView(FormView):
     template_name = 'register.html'

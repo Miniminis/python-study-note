@@ -5,6 +5,10 @@ description : 쇼핑몰
 
 # fc_mall project
 
+## one-page-view
+
+![image](fc_mall.png)
+
 ## 환경설정
 
 - 가상환경생성 및 활성화
@@ -69,9 +73,39 @@ description : 쇼핑몰
 
 ## 주문하기
 
-1. forms.py 
-2. views
-3. templates 
-4. url connect
+1. template 에서 url 연결 - form, post to orderForm
+2. url 연결
+3. orderCreateView 생성
+   - orderForm 생성
+   - success url 연결 
+4. 주문 form 생성
+   - user : foreign key. session 에서 가져와야함. --> session 필요 
+   - product : hiddenInput 으로 detail page 에서 자동입력
+   - quantity : 사용자가 직접 입력
+5. product template 에서 orderForm 연결 
+6. orderForm 에서 form_invalidate 시, 다시 product detail page 로 리다이렉트 
+7. 주문결과 확인
 
+## 주문 리스트 조회 
+
+## Decorator 
+
+- transaction management
+- authority check
+
+## form과 model의 분리 
+
+- form : form field 정의 및 각 field data 의 유효성 검사를 수행
+- view : 유효성 검사를 거친 정제된 데이터를 model에 데이터 저장
+
+## drf : Django-Rest-Framework
+
+- https://www.django-rest-framework.org/
+- response page 의 단점 
+   - 매번 새로운 페이지를 그려야 한다.
+   - 다양한 플랫폼에 대응하지 못한다 : android, ios, web
+   - client 와 server 가 서로 종속되어있어 client 입장에서는 다양한 화면을 그리기 어렵다.
+- client 와 server 의 완전한 분리 
+   - client : request : json data
+   - server: response : json data, not page
 

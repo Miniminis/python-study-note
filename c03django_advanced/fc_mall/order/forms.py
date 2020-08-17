@@ -28,6 +28,3 @@ class OrderCreateForm(forms.Form):
         if not (i_product and i_quantity):
             self.add_error('product', '상품명이 없습니다!')
             self.add_error('quantity', '주문 수량이 없습니다!')
-
-
-
