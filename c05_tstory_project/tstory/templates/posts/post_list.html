@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load humanize %}
+
+{% block title %} Posts {% endblock %}
+
+{% block body %}
+
+{% for post in post_list %} 
+<div class="post-preview">
+    <a href="post.html">
+        <h2 class="post-title">
+            {{ post.title }}
+        </h2>
+    </a>
+    <p class="post-meta">Posted by
+        <a href="#">{{ post.writer }}</a> <br>
+        on {{ post.created_at|naturaltime }}</p>
+</div>
+<hr>
+{% endfor %}
+
+<!-- Pager -->
+<div class="clearfix">
+    <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+</div>
+
+{% endblock %}
