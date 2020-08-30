@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %} home {% endblock %}
+
+{% block head %}
+<script>
+    $(document).ready(function () {
+        $('#loginButton').click(function () {
+            $.post('/apis/v1/users/login/', 
+            { 
+                'username': $('#username').val(), 
+                'password': $('#password').val() 
+            }, 
+            function () {
+                window.location = '/';
+            })
+            .fail(function (data) {
+                alert(data.responseJSON.message);
+            });
+        });
+    });
+</script>
+{% endblock %}
+
+{% block body %}
+
+login page 
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <input type="text" id="username" name="username"/>
+    <input type="password" id="password" name="password"/>
+    <button id="loginButton">로그인</button> 
+</form>
+
+{% endblock %}

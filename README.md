@@ -9,10 +9,9 @@
 ## Framework Django
 
 - [basic](/c02django_basic)
-- advanced(/c03django_advanced)
-- [t_story_project](/c04tstory_project)
-- [out_stargram](/)
-- [blog_for_all](/)
+- [advanced](/c03django_advanced)
+- [t_story_project](/c05_tstory_project)
+- [out_stargram](/c06_outstargram_project)
 
 ## Framework Flask
 
