@@ -1,9 +1,82 @@
 {% extends "base.html" %}
+{% load social_share %}
 
 {% block title %} Detail {% endblock %}
 
+{% block head %}{% endblock %}
+
 {% block body %}
 
-Detail page 
+POST CONTENT : <br>
+{{ post }}
 
+<hr>
+
+<div class="row">
+    <!-- tags  -->
+    TAGS : 
+    {% for tag in post.tags.all %}
+    <span class="badge">#{{ tag.name }}</span>
+    {% endfor %}
+
+    <!-- social share -->
+    <button class="btn btn-primary">
+        {% post_to_facebook post.get_absolute_url "SHARE VIA FACEBOOK" %}
+    </button>
+    <button class="btn btn-primary">
+        {% post_to_twitter "새로운 글: {{ post.title }}" post.get_absolute_url "SHARE VIA TWITTER" %}
+    </button>
+    <button class="btn btn-primary">
+        {% post_to_linkedin post.get_absolute_url %}
+    </button>
+    <button class="btn btn-primary">
+        {% send_email "[Shared from blog] {{ post.title }}" "{{ post.content }}" post.get_absolute_url "SHARE VIA EMAIL" %}
+    </button>
+</div>
+
+<hr>
+
+<p> TOTAL LIKES : {{ likes }} </p>
+<p>is_liked : {{ is_liked }} </p>
+
+<!-- liked_section -->
+{% if user.is_authenticated %}
+<form action="{% url 'post_like' %}" method="POST">
+    {% csrf_token %}
+    {% if is_liked %}
+    <button type="submit" class="btn btn-primary" id="like" name="post_id" value="{{ post.id }}">UNDO LIKE!</button>
+    {% else %}
+    <button type="submit" class="btn btn-primary" id="like" name="post_id" value="{{ post.id }}">CLICK LIKE!</button>
+    {% endif %}
+</form>
+{% endif %}
+
+<hr>
+
+COMMENT LIST
+
+{% for comment in comments %}
+<p>
+    {{ comment.comment }}
+</p>
+{% endfor %}
+
+<hr>
+
+<form method="POST" action="{% url 'comment_write' %}">
+    {% csrf_token %}
+
+    {% for field in form %}
+    <div class="form-group">
+        {% ifnotequal field.name 'post' %}
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {% endifnotequal %}
+        <input type="{{ field.field.widget.input_type }}" class="form-control" id="{{ field.id_for_label }}"
+            placeholder="{{ field.label }}" name="{{ field.name }}"
+            value="{% ifequal field.name 'post' %}{{post.id}}{% endifequal %}" />
+    </div>
+    {% endfor %}
+
+    <button type="submit" class="btn btn-primary">Save Comment</button>
+</form>
 {% endblock %}

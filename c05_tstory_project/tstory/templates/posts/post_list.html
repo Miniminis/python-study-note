@@ -6,9 +6,13 @@
 
 {% block body %}
 
+<div class="clearfix">
+    <a class="btn btn-primary float-right" href="{% url 'post_write' %}">Write Post</a>
+</div>
+
 {% for post in post_list %} 
 <div class="post-preview">
-    <a href="post.html">
+    <a href="{% url 'post_detail' post.id %}">
         <h2 class="post-title">
             {{ post.title }}
         </h2>

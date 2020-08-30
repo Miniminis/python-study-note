@@ -1,3 +1,4 @@
 t_env
 db.sqlite3
 /tstory/tstory/settings.py
+secrets.json
