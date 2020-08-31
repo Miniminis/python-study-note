@@ -15,10 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import TemplateView
+from django.shortcuts import redirect
+
 from contents.views import HomeView
+
+class NonUserTemplateView(TemplateView):
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_anonymous:
+            return redirect('home')
+        return super(NonUserTemplateView, self).dispatch(request, *args, **kwargs)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', HomeView.as_view(), name='content_home'),
     path('apis/', include('apis.urls')),
+    path('', HomeView.as_view(), name='home'),
+    path('login/', NonUserTemplateView.as_view(template_name='login.html'), name='login'),
+    path('register/', NonUserTemplateView.as_view(template_name='register.html'), name='register'),
 ]

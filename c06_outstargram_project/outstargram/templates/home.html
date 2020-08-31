@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %} home {% endblock %}
+
+{% block head %}
+<script>
+    $(document).ready(function () {
+        $('#logoutButton').click(function () {
+            $.get('/apis/v1/users/logout/',
+                {},
+                function () {
+                    alert('logged out! success')
+                })
+                .fail(function (data) {
+                    alert(data.responseJSON.message);
+                })
+        })
+    });
+</script>
+{% endblock %}
+
+{% block body %}
+
+HOME
+
+<button id="logoutButton">로그아웃</button>
+
+{% endblock %}

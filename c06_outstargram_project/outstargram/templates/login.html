@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %} home {% endblock %}
+{% block title %} login {% endblock %}
 
 {% block head %}
 <script>
@@ -11,10 +11,11 @@
                 'password': $('#password').val() 
             }, 
             function () {
-                window.location = '/';
+                alert('logged in success')
             })
             .fail(function (data) {
                 alert(data.responseJSON.message);
+                // alert('logged in! falied')
             });
         });
     });
@@ -23,13 +24,14 @@
 
 {% block body %}
 
-login page 
+LOGIN
 
-<form method="POST" action="">
-    {% csrf_token %}
+<!-- <form method="POST" action="">
+    {% csrf_token %} -->
     <input type="text" id="username" name="username"/>
     <input type="password" id="password" name="password"/>
+
     <button id="loginButton">로그인</button> 
-</form>
+<!-- </form> -->
 
 {% endblock %}

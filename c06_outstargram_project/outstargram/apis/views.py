@@ -9,6 +9,7 @@ from django.db import IntegrityError
 from django.core.validators import validate_email, ValidationError
 
 # Create your views here.
+@method_decorator(csrf_exempt, name='dispatch')
 class BaseApiView(View):
     @staticmethod
     def response(data='{}', message='', status=200):
@@ -16,20 +17,14 @@ class BaseApiView(View):
             'data' : data,
             'message' : message
         }
-        return JsonResponse(result, status)
+        return JsonResponse(result, status=status)
 
 
 class UserCreateView(BaseApiView):
-    @method_decorator(csrf_exempt)
-    def dispatch(self, request, *args, **kwargs):
-        return super(UserCreateView, self).dispatch(request, *args, **kwargs)
+    # @method_decorator(csrf_exempt)
+    # def dispatch(self, request, *args, **kwargs):
+    #     return super(UserCreateView, self).dispatch(request, *args, **kwargs)
 
-    
-    def get(self, request):
-        return self.response
-    
-    """ ajax 로 post 요청시, csrf_token 이 문제가 되는 경우가 있음. 
-    이를 방지하기 위해, post method 처리시의 csrf token 에 대한 처리를 별도로 정의함 """
     def post(self, request):
         username = request.POST.get('username', '')
         if not username:
@@ -46,18 +41,19 @@ class UserCreateView(BaseApiView):
             return self.response(message='올바른 이메일을 입력해주세요!', status=400)            
         
         try:
-            user = User.objects.create_user(username, password, email)
+            # user = User.objects.create_user(username, password, email)
+            ''' create_user : parameter 순서에 주의하자.
+            1. parameter 순서대로 기입하거나 
+            2. 명시적으로 이름과 값을 매핑하여 입력하거나 '''
+            # user = User.objects.create_user(username, email, password)
+            user = User.objects.create_user(username=username, password=password, email=email)
         except IntegrityError:
             return self.response(message='이미 존재하는 아이디입니다!', status=400)
 
-        return self.response({ 'user.id' : user.id })
+        return self.response({'user.id' : user.id}, message='정상처리되었습니다.')
 
 
 class UserLoginView(BaseApiView):
-
-    def get(self, request):
-        return self.response
-
     def post(self, request):
         username = request.POST.get('username') 
         if not username:
@@ -72,4 +68,11 @@ class UserLoginView(BaseApiView):
             return self.response(message='일치하는 회원정보가 없습니다!', status=400)
         login(request, user)
         
-        return self.response
+        return self.response(message='정상처리되었습니다.')
+
+
+class UserLogout(BaseApiView):
+    def get(self, request):
+        logout(request)
+        return self.response(message='정상처리되었습니다.')
+

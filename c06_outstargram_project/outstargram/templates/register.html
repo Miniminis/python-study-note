@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %} {% endblock %}
+
+{% block head %}
+<script>
+$(document).ready(function () {
+    $('#btnRegister').click(function () {
+        $.post('/apis/v1/users/create/',
+            {
+                'username': $('#username').val(),
+                'password': $('#password').val(),
+                'email': $('#email').val(),
+            },
+            function () {
+                alert('가입을 축하합니다!');
+                window.location = {% url 'login' %};
+        })
+        .fail(function (data) {
+            alert(data.responseJSON.message)
+        });
+    });
+});
+
+</script>
+
+{% endblock %}
+
+{% block body %}
+
+REGISTER <br>
+아이디 : <input type="text" id="username" name="username" /> <br>
+비밀번호 : <input type="password" id="password" name="password" /> <br>
+이메일 : <input type="email" id="email" name="email"/> <br>
+
+<button id="btnRegister">회원가입</button>
+
+{% endblock %}
