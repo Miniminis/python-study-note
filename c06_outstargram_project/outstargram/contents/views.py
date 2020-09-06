@@ -23,3 +23,6 @@ class HomeView(TemplateView):
         )
         return context
 
+
+class RelationView(TemplateView):
+    template_name='relation.html'

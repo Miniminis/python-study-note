@@ -5,8 +5,11 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views import View
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
 from django.core.validators import validate_email, ValidationError
+
+from contents.models import Content, Image
 
 # Create your views here.
 @method_decorator(csrf_exempt, name='dispatch')
@@ -75,4 +78,16 @@ class UserLogout(BaseApiView):
     def get(self, request):
         logout(request)
         return self.response(message='정상처리되었습니다.')
+
+
+@method_decorator(login_required, name='dispatch')
+class ContentCreateView(BaseApiView):
+
+    def post(self, request):
+        text = request.POST.get('text', '').strip()
+        content = Content.objects.create(user=request.user, text=text)
+        for idx, file in enumerate(request.FILES.values()):
+            Image.objects.create(content=content, image=file, order=idx)
+        return self.response(message="정상처리되었습니다.")
+
 

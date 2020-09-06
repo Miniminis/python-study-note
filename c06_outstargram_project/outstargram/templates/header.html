@@ -1,0 +1,15 @@
+<nav class="fast-nav navbar navbar-expand-lg navbar-light bg-white">
+    <a class="navbar-brand text-danger col-sm-8" href="{% url 'home' %}"><b>Fastgram</b></a>
+    <div class="collapse navbar-collapse col-sm-4" id="navbarText"
+        style="display: inline-block !important; text-align: right;">
+        <span class="navbar-text">
+            {{ request.user }}
+        </span>
+        <span class="navbar-text">
+            <a href="{% url 'contents_relation' %}">친구목록</a>
+        </span>
+        <span class="navbar-text">
+            <a href="javascript:void(0);" id="logoutButton">로그아웃</a>
+        </span>
+    </div>
+</nav>
