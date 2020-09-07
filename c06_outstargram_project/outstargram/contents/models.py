@@ -38,7 +38,8 @@ class Image(BaseModel):
         unique_together = ['content', 'order']
         ordering = ['order']
 
+
 class FollowReleation(BaseModel):
     followee = models.OneToOneField(User, related_name='follower', on_delete=models.CASCADE)
-    follower = models.ManyToManyField(User, related_name='followee')
+    follower = models.OneToOneField(User, related_name='followee', on_delete=models.CASCADE)
 

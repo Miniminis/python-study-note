@@ -5,18 +5,19 @@
 <script>
     $(document).ready(function () {
         $('#loginButton').click(function () {
-            $.post('/apis/v1/users/login/', 
-            { 
-                'username': $('#username').val(), 
-                'password': $('#password').val() 
-            }, 
-            function () {
-                alert('logged in success')
-            })
-            .fail(function (data) {
-                alert(data.responseJSON.message);
-                // alert('logged in! falied')
-            });
+            $.post('/apis/v1/users/login/',
+                {
+                    'username': $('#username').val(),
+                    'password': $('#password').val()
+                },
+                function () {
+                    alert('logged in success');
+                    window.location = '';
+                })
+                .fail(function (data) {
+                    alert(data.responseJSON.message);
+                    // alert('logged in! falied')
+                });
         });
     });
 </script>
@@ -24,14 +25,14 @@
 
 {% block body %}
 
-LOGIN
-
-<!-- <form method="POST" action="">
-    {% csrf_token %} -->
-    <input type="text" id="username" name="username"/>
-    <input type="password" id="password" name="password"/>
-
-    <button id="loginButton">로그인</button> 
-<!-- </form> -->
-
+<h2>LOGIN</h2>
+<p>
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" />
+</p>
+<p>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" />
+</p>
+<button id="loginButton">로그인</button>
 {% endblock %}
