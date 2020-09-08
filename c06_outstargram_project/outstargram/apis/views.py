@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
 from django.core.validators import validate_email, ValidationError
 
-from contents.models import Content, Image
+from contents.models import Content, Image, FollowReleation
 
 # Create your views here.
 @method_decorator(csrf_exempt, name='dispatch')
@@ -82,7 +82,6 @@ class UserLogout(BaseApiView):
 
 @method_decorator(login_required, name='dispatch')
 class ContentCreateView(BaseApiView):
-
     def post(self, request):
         text = request.POST.get('text', '').strip()
         content = Content.objects.create(user=request.user, text=text)
@@ -90,4 +89,50 @@ class ContentCreateView(BaseApiView):
             Image.objects.create(content=content, image=file, order=idx)
         return self.response(message="정상처리되었습니다.")
 
+
+@method_decorator(login_required, name='dispatch')
+class RelationCreateView(BaseApiView):
+    def post(self, request):
+        try:
+            followee_id = request.POST.get('id')
+        except ValueError:
+            return self.response(message='잘못된 요청입니다.', status=400)
+
+        relation, is_created = FollowReleation.objects.get_or_create(follower=request.user)
+
+        try:
+            if followee_id == request.user.id:      # 자기 자신을 follow 방지
+                raise IntegrityError
+            relation.followee.add(followee_id)
+            relation.save()
+        except IntegrityError:
+            return self.response(message='잘못된 요청입니다!', status=400)
+
+        return self.response(message='정상처리되었습니다.')
+    
+        
+@method_decorator(login_required, name='dispatch')
+class RelationDeleteView(BaseApiView):
+    def post(self, request):
+        user = request.user
+
+        try:
+            followee_id = request.POST.get('id')
+        except ValueError:
+            return self.response(message='잘못된 요청입니다.', status=400)
+
+        try:
+            relation = FollowReleation.objects.get(follower=user)
+        except FollowReleation.DoesNotExist:
+            return self.response(message='잘못된 요청입니다!', status=400)
+        
+        try:
+            if followee_id == user.id:
+                raise IntegrityError
+            relation.followee.remove(followee_id)
+            relation.save() 
+        except IntegrityError:
+            return self.response(message='잘못된 요청입니다!', status=400)
+
+        return self.response(message='정상처리되었습니다.')
 

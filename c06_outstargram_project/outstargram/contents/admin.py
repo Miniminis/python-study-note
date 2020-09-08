@@ -14,12 +14,12 @@ admin.site.register(Content, ContentAdmin)
 
 
 class ImageAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('image', 'created_at')
 
 admin.site.register(Image, ImageAdmin)
 
 
-class FollowReleationAdmin(admin.ModelAdmin):
-    pass
+class FollowRelationAdmin(admin.ModelAdmin):
+    list_display = ('follower', 'created_at')
 
-admin.site.register(FollowReleation, FollowReleationAdmin)
+admin.site.register(FollowReleation, FollowRelationAdmin)

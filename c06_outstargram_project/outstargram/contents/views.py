@@ -6,7 +6,6 @@ from django.contrib.auth.decorators import login_required
 from .models import Content, FollowReleation
 
 # Create your views here.
-
 # 로그인 상태로만 접근 가능하기 때문에 자동으로 로그인 페이지로 redirect 처리
 @method_decorator(login_required, name='dispatch')      
 class HomeView(TemplateView):

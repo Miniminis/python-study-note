@@ -40,6 +40,6 @@ class Image(BaseModel):
 
 
 class FollowReleation(BaseModel):
-    followee = models.OneToOneField(User, related_name='follower', on_delete=models.CASCADE)
-    follower = models.OneToOneField(User, related_name='followee', on_delete=models.CASCADE)
+    follower = models.OneToOneField(User, on_delete=models.CASCADE)
+    followee = models.ManyToManyField(User, related_name='followee')
 
