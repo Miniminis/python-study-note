@@ -136,3 +136,14 @@ class RelationDeleteView(BaseApiView):
 
         return self.response(message='정상처리되었습니다.')
 
+
+@method_decorator(login_required, name='dispatch')
+class UserGetView(BaseApiView):
+    def get(self, request):
+        username = request.GET.get('username', '').strip()
+
+        try:
+            user = User.objects.get(username=username)
+        except User.DoesNotExist:
+            return self.response(message='검색결과가 없습니다!', status=400)        
+        return self.response(message='정상처리되었습니다.', data={'id':user.id, 'username':user.username, 'email':user.email})

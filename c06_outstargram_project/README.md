@@ -44,3 +44,20 @@
 2. 내가 팔로우 하는 사람들
     - [unfollow] 버튼 show : all ppl
 
+## ImageServer Deployment : AWS S3, IAM
+
+1. AWS 계정생성
+2. S3 bucket 생성 
+3. IAM 유저 생성 
+4. project 에서 `pip install boto3`, `pip install django-storages` 
+5. settings.py 에서 boto3, aws 관련 설정
+6. urls.py 에서 media 관련 경로 주석처리 
+7. S3에서 권한 및 엑세스 설정 
+    - S3 설정 이후 css 깨질때 : python manage.py collectstatic 
+
+## settings.py 분리작업 
+
+1. settings dir > base, dev, prod 각각 파일로 분리
+    - dev와 prod 에서 다른 db 나 S3 버킷을 쓸 때, 각각의 파일 내에서 정의 
+2. terminal : export DJANGO_SETTINGS_MODULE=fastgram.settings.dev/fastgram.settings.prod 
+## Server Deployment 

@@ -20,6 +20,31 @@
         alert(data.responseJSON.message);
       });
     });
+
+    var followeesIds = {{ followees_ids }}
+    $('#search').click(function() {
+      var username = $('#searchUserName').val()
+      $.get("{% url 'apis_v1_user_get' %}", { username: username }, function(obj){
+        $('#searchResult').html(obj.data.username);
+
+        var $searchRelationButton = $('#searchFollow button');
+        $searchRelationButton.data('user-id', obj.data.id);
+        console.log(obj.data.id)
+        if (followeesIds.indexOf(obj.data.id) > -1) {
+            $searchRelationButton.removeClass('follow');
+            $searchRelationButton.addClass('unfollow');
+            $searchRelationButton.html('언팔로우');
+        } else {
+            $searchRelationButton.removeClass('unfollow');
+            $searchRelationButton.addClass('follow');
+            $searchRelationButton.html('팔로우');
+        }
+        $('#searchFollow').show();
+
+      }).fail(function(data){
+        $('#searchResult').html(data.responseJSON.message);
+      })
+    });
   });
 </script>
 {% endblock %}
